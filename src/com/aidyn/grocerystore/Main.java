@@ -1,6 +1,6 @@
 package com.aidyn.grocerystore;
 
- class Main {
+class Main{
     static void main(String[] args) {
 
         System.out.println("=== Grocery Store Management System ===");

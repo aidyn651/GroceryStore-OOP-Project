@@ -1,6 +1,5 @@
 package com.aidyn.grocerystore;
-
-public class Sale {
+public class Sale{
 
     private int saleId;
     private String customerName;

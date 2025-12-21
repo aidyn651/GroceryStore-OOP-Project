@@ -1,5 +1,4 @@
 package com.aidyn.grocerystore;
-
 public class Product {
 
     private int productId;
