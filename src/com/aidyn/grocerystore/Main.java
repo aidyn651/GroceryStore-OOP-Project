@@ -22,7 +22,7 @@ package com.aidyn.grocerystore;
         System.out.println("After restock: " + p2);
 
         System.out.println("\n--- CUSTOMERS ---");
-        System.out.println(c1);
+        System.out.println(c1) ;
         System.out.println("Is VIP: " + c1.isVIP());
         System.out.println(c2);
         System.out.println("Is VIP: " + c2.isVIP());
