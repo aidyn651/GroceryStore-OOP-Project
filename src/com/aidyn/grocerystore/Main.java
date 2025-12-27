@@ -1,37 +1,108 @@
 package com.aidyn.grocerystore;
 
-class Main{
-    static void main(String[] args) {
+import java.util.ArrayList;
+import java.util.Scanner;
 
-        System.out.println("=== Grocery Store Management System ===");
+public class Main {
 
-        Product p1 = new Product(1, "Milk", 500, 10);
-        Product p2 = new Product(2, "Bread", 300, 0);
+    private static ArrayList<Product> products = new ArrayList<>();
+    private static ArrayList<Customer> customers = new ArrayList<>();
+    private static ArrayList<Sale> sales = new ArrayList<>();
+    private static Scanner scanner = new Scanner(System.in);
 
-        Customer c1 = new Customer(101, "Aida", "Regular", 90000);
-        Customer c2 = new Customer(102, "Dana", "Gold", 150000);
+    public static void main(String[] args) {
 
-        Sale sale1 = new Sale(1001, "Aida", 0, "2025-12-21");
+        // Test data
+        products.add(new Product(1, "Milk", 500, 10));
+        products.add(new Product(2, "Bread", 300, 0));
 
-        System.out.println("\n--- PRODUCTS ---");
-        System.out.println(p1);
-        System.out.println(p2);
+        customers.add(new Customer(101, "Aida", "Regular", 90000));
+        customers.add(new Customer(102, "Dana", "Gold", 150000));
 
-        System.out.println("\nIs Bread in stock? " + p2.isInStock());
-        p2.restock(20);
-        System.out.println("After restock: " + p2);
+        boolean running = true;
 
-        System.out.println("\n--- CUSTOMERS ---");
-        System.out.println(c1) ;
-        System.out.println("Is VIP: " + c1.isVIP());
-        System.out.println(c2);
-        System.out.println("Is VIP: " + c2.isVIP());
+        while (running) {
+            showMenu();
+            int choice = scanner.nextInt();
+            scanner.nextLine();
 
-        System.out.println("\n--- SALE ---");
-        sale1.addItem(p1.getPrice());
-        sale1.addItem(p2.getPrice());
-        System.out.println(sale1);
+            switch (choice) {
+                case 1 -> addProduct();
+                case 2 -> viewProducts();
+                case 3 -> addCustomer();
+                case 4 -> viewCustomers();
+                case 0 -> running = false;
+                default -> System.out.println("Invalid choice!");
+            }
 
-        System.out.println("\n=== Program Complete ===");
+            if (running) {
+                System.out.println("\nPress Enter to continue...");
+                scanner.nextLine();
+            }
+        }
+    }
+
+    private static void showMenu() {
+        System.out.println("""
+                ===== GROCERY STORE SYSTEM =====
+                1. Add Product
+                2. View Products
+                3. Add Customer
+                4. View Customers
+                0. Exit
+                ================================
+                Enter choice:
+                """);
+    }
+
+    private static void addProduct() {
+        System.out.print("ID: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Price: ");
+        double price = scanner.nextDouble();
+
+        System.out.print("Quantity: ");
+        int qty = scanner.nextInt();
+        scanner.nextLine();
+
+        products.add(new Product(id, name, price, qty));
+        System.out.println("Product added!");
+    }
+
+    private static void viewProducts() {
+        for (Product p : products) {
+            System.out.println(p);
+        }
+    }
+
+    private static void addCustomer() {
+        System.out.print("ID: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Level: ");
+        String level = scanner.nextLine();
+
+        System.out.print("Total purchases: ");
+        double total = scanner.nextDouble();
+        scanner.nextLine();
+
+        customers.add(new Customer(id, name, level, total));
+        System.out.println("Customer added!");
+    }
+
+    private static void viewCustomers() {
+        for (Customer c : customers) {
+            System.out.println(c);
+            System.out.println("VIP: " + c.isVIP());
+        }
     }
 }

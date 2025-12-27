@@ -1,5 +1,5 @@
 package com.aidyn.grocerystore;
-public class Sale{
+public class Sale {
 
     private int saleId;
     private String customerName;
@@ -8,12 +8,11 @@ public class Sale{
 
     public Sale(int saleId, String customerName, double totalAmount, String date) {
         this.saleId = saleId;
-        this.customerName = customerName;
-        this.totalAmount = totalAmount;
-        this.date = date;
+        setCustomerName(customerName);
+        setTotalAmount(totalAmount);
+        setDate(date);
     }
 
-    // Getters
     public int getSaleId() {
         return saleId;
     }
@@ -22,20 +21,42 @@ public class Sale{
         return totalAmount;
     }
 
-    // Methods with logic
-    public void addItem(double price) {
-        totalAmount += price;
+    // Setters with validation
+    public void setCustomerName(String customerName) {
+        if (customerName != null && !customerName.isEmpty()) {
+            this.customerName = customerName;
+        } else {
+            this.customerName = "Unknown";
+        }
     }
 
-    public double calculateTotal() {
-        return totalAmount;
+    public void setTotalAmount(double totalAmount) {
+        if (totalAmount >= 0) {
+            this.totalAmount = totalAmount;
+        } else {
+            this.totalAmount = 0;
+        }
+    }
+
+    public void setDate(String date) {
+        if (date != null && !date.isEmpty()) {
+            this.date = date;
+        } else {
+            this.date = "N/A";
+        }
+    }
+
+    // Logic
+    public void addItem(double price) {
+        if (price > 0) {
+            totalAmount += price;
+        }
     }
 
     @Override
     public String toString() {
-        return "Sale{id=" + saleId +
-                ", customer='" + customerName + '\'' +
-                ", total=" + totalAmount +
-                ", date='" + date + '\'' + '}';
+        return saleId + " | " + customerName +
+                " | total: " + totalAmount +
+                " | date: " + date;
     }
 }

@@ -6,13 +6,11 @@ public class Product {
     private double price;
     private int stockQuantity;
 
-
-
     public Product(int productId, String name, double price, int stockQuantity) {
         this.productId = productId;
-        this.name = name;
-        this.price = price;
-        this.stockQuantity = stockQuantity;
+        setName(name);
+        setPrice(price);
+        setStockQuantity(stockQuantity);
     }
 
     // Getters
@@ -32,32 +30,44 @@ public class Product {
         return stockQuantity;
     }
 
-    // Setters
+    // Setters with validation
     public void setName(String name) {
-        this.name = name;
+        if (name != null && !name.trim().isEmpty()) {
+            this.name = name;
+        } else {
+            this.name = "Unknown product";
+        }
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        if (price >= 0) {
+            this.price = price;
+        } else {
+            this.price = 0;
+        }
     }
 
     public void setStockQuantity(int stockQuantity) {
-        this.stockQuantity = stockQuantity;
+        if (stockQuantity >= 0) {
+            this.stockQuantity = stockQuantity;
+        } else {
+            this.stockQuantity = 0;
+        }
     }
 
-    // Methods with logic
+    // Logic
     public boolean isInStock() {
         return stockQuantity > 0;
     }
 
     public void restock(int amount) {
-        stockQuantity += amount;
+        if (amount > 0) {
+            stockQuantity += amount;
+        }
     }
 
+    @Override
     public String toString() {
-        return "Product{id=" + productId +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", stock=" + stockQuantity + '}';
+        return productId + " | " + name + " | " + price + " KZT | qty: " + stockQuantity;
     }
 }
