@@ -1,44 +1,22 @@
 package com.aidyn.grocerystore;
+
 public class Product {
 
-    private int productId;
-    private String name;
-    private double price;
-    private int stockQuantity;
+    // protected accsess daug class
+    protected int id;
+    protected String name;
+    protected double price;
+    protected int quantity;
 
-    public Product(int productId, String name, double price, int stockQuantity) {
-        this.productId = productId;
-        setName(name);
+    // constr
+    public Product(int id, String name, double price, int quantity) {
+        this.id = id;
+        this.name = name;
         setPrice(price);
-        setStockQuantity(stockQuantity);
+        setQuantity(quantity);
     }
 
-    // Getters
-    public int getProductId() {
-        return productId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public int getStockQuantity() {
-        return stockQuantity;
-    }
-
-    // Setters with validation
-    public void setName(String name) {
-        if (name != null && !name.trim().isEmpty()) {
-            this.name = name;
-        } else {
-            this.name = "Unknown product";
-        }
-    }
-
+    // validation
     public void setPrice(double price) {
         if (price >= 0) {
             this.price = price;
@@ -47,27 +25,32 @@ public class Product {
         }
     }
 
-    public void setStockQuantity(int stockQuantity) {
-        if (stockQuantity >= 0) {
-            this.stockQuantity = stockQuantity;
+    public void setQuantity(int quantity) {
+        if (quantity >= 0) {
+            this.quantity = quantity;
         } else {
-            this.stockQuantity = 0;
+            this.quantity = 0;
         }
     }
 
-    // Logic
+    // method for override
+    public void showInfo() {
+        System.out.println("Product: " + name);
+    }
+
+    // 2 method for override
+    public String getType() {
+        return "Product";
+    }
+
     public boolean isInStock() {
-        return stockQuantity > 0;
-    }
-
-    public void restock(int amount) {
-        if (amount > 0) {
-            stockQuantity += amount;
-        }
+        return quantity > 0;
     }
 
     @Override
     public String toString() {
-        return productId + " | " + name + " | " + price + " KZT | qty: " + stockQuantity;
+        return "[" + getType() + "] " + name +
+                " | Price: " + price +
+                " | Qty: " + quantity;
     }
 }
