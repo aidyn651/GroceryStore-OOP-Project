@@ -8,19 +8,21 @@ public class FreshProduct extends Product {
         super(id, name, price, quantity);
         this.expirationDays = expirationDays;
     }
+//setters
+    public void setExpirationDays(int expirationDays) {
+        this.expirationDays = expirationDays;
+    }
 
     @Override
     public void showInfo() {
         System.out.println("Fresh product: " + name +
                 ", expires in " + expirationDays + " days");
     }
-
+    // getters
     @Override
     public String getType() {
         return "Fresh";
     }
-
-    // Уникальный метод
     public boolean isExpiringSoon() {
         return expirationDays <= 3;
     }

@@ -15,11 +15,15 @@ public class Product {
         setPrice(price);
         setQuantity(quantity);
     }
+    //getters
     public int getId() { return id; }
     public String getName() { return name; }
     public double getPrice() { return price; }
     public int getQuantity() { return quantity; }
 
+    //setters
+    public void setId(int id) { this.id = id; }
+    public void setName(String name) { this.name = name; }
     // validation
     public void setPrice(double price) {
         if (price >= 0) {
@@ -28,7 +32,6 @@ public class Product {
             this.price = 0;
         }
     }
-
     public void setQuantity(int quantity) {
         if (quantity >= 0) {
             this.quantity = quantity;

@@ -1,7 +1,6 @@
 package com.aidyn.grocerystore;
 
 public class PackagedProduct extends Product {
-
     private String brand;
 
     public PackagedProduct(int id, String name, double price, int quantity, String brand) {
