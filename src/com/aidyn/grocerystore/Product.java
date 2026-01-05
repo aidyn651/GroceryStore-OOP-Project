@@ -15,6 +15,10 @@ public class Product {
         setPrice(price);
         setQuantity(quantity);
     }
+    public int getId() { return id; }
+    public String getName() { return name; }
+    public double getPrice() { return price; }
+    public int getQuantity() { return quantity; }
 
     // validation
     public void setPrice(double price) {
