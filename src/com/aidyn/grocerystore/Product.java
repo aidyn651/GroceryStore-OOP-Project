@@ -2,7 +2,7 @@ package com.aidyn.grocerystore;
 
 public class Product {
 
-    // protected accsess daug class
+    // protected access subclass
     protected int id;
     protected String name;
     protected double price;

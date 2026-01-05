@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    // ПОЛИМОРФНЫЙ СПИСОК
+    // polimor
     private static ArrayList<Product> products = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 

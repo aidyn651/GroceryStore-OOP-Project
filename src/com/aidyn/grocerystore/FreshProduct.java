@@ -5,7 +5,7 @@ public class FreshProduct extends Product {
     private int expirationDays;
 
     public FreshProduct(int id, String name, double price, int quantity, int expirationDays) {
-        super(id, name, price, quantity); // ОБЯЗАТЕЛЬНО первым
+        super(id, name, price, quantity);
         this.expirationDays = expirationDays;
     }
 
