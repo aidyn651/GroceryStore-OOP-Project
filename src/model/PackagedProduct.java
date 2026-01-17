@@ -11,5 +11,6 @@ public class PackagedProduct extends Product {
     @Override
     public void getCategory() {
         System.out.println("Category: Packaged");
+
     }
 }
