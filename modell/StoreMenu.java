@@ -96,4 +96,3 @@ public class StoreMenu implements Menu {
         }
     }
 }
-
