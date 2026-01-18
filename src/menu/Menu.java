@@ -1,4 +1,4 @@
-package model;
+package menu;
 
 public interface Menu {
     void displayMenu();
