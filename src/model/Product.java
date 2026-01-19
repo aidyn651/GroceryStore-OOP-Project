@@ -1,6 +1,30 @@
 package model;
 
 public abstract class Product {
+//package model
+    //public abstract class Product{
+    //protected int productId;
+    //protected String name;
+    //protected double price;
+    //protected int stockQuantity;
+    //}
+
+    //public Product(int productId. string name. double price. int stockQuantity){
+    //setProductId(productId);
+    //set
+
+    //getters
+    //public int getProductId(){
+    //return productId;
+    //}
+
+    //Set w v
+    //public void setProductId(int productId){
+    //if (productId<=0){
+    //throw new IllegalArgumentException("Product id must be positive")
+    //}
+    //this.productId=productId;
+    //}
 
     protected int productId;
     protected String name;
@@ -56,7 +80,14 @@ public abstract class Product {
         }
         this.price = price;
     }
-
+//public void setName(string name){
+    //if(name==null|| name.trim()isEmpty()){
+    //throw new IllegalArgumentException("name not empty");
+    //}
+    //if(name.length()<2){
+    //throw new IllegalArgumentException("2 ch");
+//}
+    //this
     public void setStockQuantity(int stockQuantity) {
         if (stockQuantity < 0) {
             throw new IllegalArgumentException("Stock quantity cannot be negative");
