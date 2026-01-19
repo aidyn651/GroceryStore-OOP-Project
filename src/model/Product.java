@@ -39,6 +39,7 @@ public abstract class Product {
         this.productId = productId;
     }
 
+
     public void setName(String name) {
         if (name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException("Product name cannot be empty");
@@ -68,7 +69,7 @@ public abstract class Product {
         return price * stockQuantity;
     }
 
-    // Abstract methods — ОБЯЗАТЕЛЬНО
+    // Abstract methods
     public abstract String getProductType();
     public abstract boolean isExpired();
 

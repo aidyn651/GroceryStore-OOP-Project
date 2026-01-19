@@ -28,7 +28,7 @@ public class PackagedProduct extends Product {
 
     @Override
     public boolean isExpired() {
-        return false; // упрощённо (без LocalDate)
+        return false;
     }
 
     @Override
