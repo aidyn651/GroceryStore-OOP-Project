@@ -33,7 +33,7 @@ public class GroceryItem implements Sellable {
     }
 
     // Setters with validation
-    public void setName(String nme) {
+    public void setName(String name) {
         if (name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException("Product name cannot be empty");
         }

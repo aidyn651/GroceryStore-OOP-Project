@@ -2,37 +2,33 @@ package model;
 
 public class PackagedProduct extends Product {
 
-    private String expirationDate;
+    private int expirationDay;
 
     public PackagedProduct(int productId, String name, double price,
-                           int stockQuantity, String expirationDate) {
+                           int stockQuantity, int expirationDay) {
         super(productId, name, price, stockQuantity);
-        setExpirationDate(expirationDate);
+        setExpirationDay(expirationDay);
     }
 
-    public String getExpirationDate() {
-        return expirationDate;
+    public int getExpirationDay() {
+        return expirationDay;
     }
 
-    public void setExpirationDate(String expirationDate) {
-        if (expirationDate == null || expirationDate.trim().isEmpty()) {
-            throw new IllegalArgumentException("Expiration date cannot be empty");
+    public void setExpirationDay(int expirationDay) {
+        if (expirationDay <= 0) {
+            throw new IllegalArgumentException("Expiration day must be positive");
         }
-        this.expirationDate = expirationDate;
+        this.expirationDay = expirationDay;
     }
 
     @Override
     public String getProductType() {
-        return "Packaged Product";
+        return "PACKAGED";
     }
 
+    // 🔥 ВОТ ЭТО ОБЯЗАТЕЛЬНО
     @Override
     public boolean isExpired() {
         return false;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString() + ", exp: " + expirationDate;
     }
 }

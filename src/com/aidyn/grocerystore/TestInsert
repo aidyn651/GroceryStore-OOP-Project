@@ -1,0 +1,15 @@
+package test;
+
+import database.ProductDAO;
+import model.FreshProduct;
+import model.PackagedProduct;
+
+public class TestInsert {
+    public static void main(String[] args) {
+
+        ProductDAO dao = new ProductDAO();
+
+        dao.insertProduct(new FreshProduct(0, "Apple", 450.0, 20, 5));
+        dao.insertProduct(new PackagedProduct(0, "Chips", 650.0, 10, 30));
+    }
+}
